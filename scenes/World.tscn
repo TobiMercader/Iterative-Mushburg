@@ -35,3 +35,5 @@ skeleton = NodePath("../..")
 
 [node name="PlaneCollision" type="CollisionShape3D" parent="PlaneBody"]
 shape = SubResource("BoxShape3D_q0mr7")
+
+[node name="GridMap" type="GridMap" parent="."]

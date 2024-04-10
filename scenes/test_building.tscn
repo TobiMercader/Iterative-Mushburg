@@ -5,12 +5,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_4vvjo"]
 size = Vector3(4, 4, 4)
 
-[node name="Node3D" type="Node3D"]
+[node name="TestBuildingNode" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="TestBuildingBody" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="TestBuildingCollision" type="CollisionShape3D" parent="TestBuildingBody"]
 shape = SubResource("BoxShape3D_4vvjo")
 
-[node name="mushburg test building" parent="StaticBody3D" instance=ExtResource("1_b42qt")]
+[node name="mushburg test building" parent="TestBuildingBody" instance=ExtResource("1_b42qt")]
