@@ -22,12 +22,14 @@ func _process(delta):
 	var worldSpace = world.get_world_3d().direct_space_state
 	#gets the point that intersected with a collider
 	var rayResult = worldSpace.intersect_ray(rayQuery)
+	
+	
 	if !rayResult.is_empty():
 		#converts the float axis into hole numbers
-		mouseWorld = Vector3i(rayResult.position.x, rayResult.position.y, rayResult.position.z)
+		mouseWorld = rayResult.position
+		if(Input.is_action_just_pressed("left_mouse")):
+			var placed_building = building.instantiate()
+			add_child(placed_building)
+			placed_building.position = Vector3i(mouseWorld)
+			print(Vector3i(mouseWorld))
 	
-func _input(event):
-	if event.is_action_pressed("left_mouse"):
-		var placed_building = building.instantiate()
-		add_child(placed_building)
-		placed_building.position = mouseWorld
