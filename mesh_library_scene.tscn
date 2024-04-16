@@ -23,6 +23,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, -1)
 mesh = SubResource("BoxMesh_vkjlf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DarkGreenTile"]
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DarkGreenTile/StaticBody3D"]
 shape = SubResource("BoxShape3D_hkssf")

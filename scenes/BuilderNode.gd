@@ -17,7 +17,7 @@ func _process(delta):
 	#but 100 points foward 
 	var rayMouseTo =  rayMouseFrom + camera.project_ray_normal(posMouse) * 100
 	#creates a ray query, used to get info from the ray
-	var rayQuery = PhysicsRayQueryParameters3D.create(rayMouseFrom, rayMouseTo)
+	var rayQuery = PhysicsRayQueryParameters3D.create(rayMouseFrom, rayMouseTo, 1)
 	#reference to the world space (coordinates etc..)
 	var worldSpace = world.get_world_3d().direct_space_state
 	#gets the point that intersected with a collider
