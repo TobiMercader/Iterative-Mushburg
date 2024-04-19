@@ -32,4 +32,5 @@ func _process(delta):
 			add_child(placed_building)
 			placed_building.position = Vector3i(mouseWorld)
 			print(Vector3i(mouseWorld))
+			
 	
