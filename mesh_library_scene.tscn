@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ft6pf4hoo85p"]
+[gd_scene load_steps=8 format=3 uid="uid://ft6pf4hoo85p"]
+
+[ext_resource type="PackedScene" uid="uid://cwkqtess7oiq8" path="res://assets/mushburg test building.glb" id="1_3pqol"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7y3e"]
 albedo_color = Color(0.188235, 0.458824, 0.243137, 1)
@@ -36,3 +38,6 @@ mesh = SubResource("BoxMesh_3e6sb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LightGreenTile/StaticBody3D"]
 shape = SubResource("BoxShape3D_67lfy")
+
+[node name="mushburg test building" parent="." instance=ExtResource("1_3pqol")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.5, 2, 0)

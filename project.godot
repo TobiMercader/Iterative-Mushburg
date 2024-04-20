@@ -36,3 +36,7 @@ right_mouse={
 
 3d_physics/layer_1="Terrain"
 3d_physics/layer_2="Buildings"
+
+[rendering]
+
+renderer/rendering_method="mobile"
