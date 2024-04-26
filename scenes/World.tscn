@@ -18,7 +18,7 @@ transform = Transform3D(0.707785, -0.611396, 0.353886, 0, 0.500952, 0.865475, -0
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.706996, -0.476176, 0.522889, -2.1048e-08, 0.739361, 0.673309, -0.707218, -0.476027, 0.522725, 18.5816, 9.62785, 18.6778)
+transform = Transform3D(0.706996, -0.706994, -0.0177723, 2.98023e-08, -0.0251299, 0.999684, -0.707218, -0.706773, -0.0177667, 8.02553, 17.7517, 7.79854)
 
 [node name="BuilderNode" type="Node" parent="."]
 script = ExtResource("1_rnwa5")

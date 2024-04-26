@@ -5,6 +5,9 @@ extends Node
 
 var mouseWorld
 
+var building_positions: Array
+var current_rect
+
 var building = preload("res://scenes/test_building.tscn")
 
 func _process(delta):
@@ -24,13 +27,27 @@ func _process(delta):
 	var rayResult = worldSpace.intersect_ray(rayQuery)
 	
 	
+	
 	if !rayResult.is_empty():
 		#converts the float axis into hole numbers
-		mouseWorld = rayResult.position
+		mouseWorld = Vector2i(rayResult.position.x, rayResult.position.z) 
 		if(Input.is_action_just_pressed("left_mouse")):
-			var placed_building = building.instantiate()
-			add_child(placed_building)
-			placed_building.position = Vector3i(mouseWorld)
-			print(Vector3i(mouseWorld))
+			current_rect = Rect2i(mouseWorld - GameState.building_surface + Vector2i(1,1), GameState.building_surface)
 			
+			var is_placeable = true
+			for n in range (building_positions.size()):
+				if(current_rect.intersects(building_positions[n])):
+					is_placeable = false
+					break
+					#error: if theres one of the rects in the array that doesn't intersect,
+					# then it places the building. WHat it should do is wait to iterate through the hole array
+					#and even if only one rect intesects then it doesn´t place the building
+			if(is_placeable):
+				_placeBuilding()
+				
+func _placeBuilding():
+	var placed_building = building.instantiate()
+	add_child(placed_building)
+	placed_building.position = Vector3(mouseWorld.x, 1, mouseWorld.y)
+	building_positions.append(current_rect)
 	

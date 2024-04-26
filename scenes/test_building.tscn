@@ -4,17 +4,19 @@
 [ext_resource type="Script" path="res://scenes/test_building.gd" id="1_rcsxu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4vvjo"]
-size = Vector3(4, 4, 4)
+size = Vector3(4, 2, 4)
 
 [node name="TestBuildingNode" type="Node3D"]
 script = ExtResource("1_rcsxu")
 
 [node name="TestBuildingBody" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -1)
 collision_layer = 2
 collision_mask = 3
 
 [node name="TestBuildingCollision" type="CollisionShape3D" parent="TestBuildingBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_4vvjo")
 
 [node name="mushburg test building" parent="TestBuildingBody" instance=ExtResource("1_b42qt")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, -1, 0)
