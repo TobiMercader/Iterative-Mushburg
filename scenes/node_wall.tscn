@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsbj5qgs6sivn"]
+
+[ext_resource type="Script" path="res://Scripts/nodoMuro.gd" id="1_tymq0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vb670"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lv3gx"]
+
+[node name="nodeWall" type="StaticBody3D"]
+script = ExtResource("1_tymq0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5)
+shape = SubResource("BoxShape3D_vb670")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5)
+mesh = SubResource("BoxMesh_lv3gx")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

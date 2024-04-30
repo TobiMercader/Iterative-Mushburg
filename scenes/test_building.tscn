@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddea50lu74r88"]
 
 [ext_resource type="PackedScene" uid="uid://cwkqtess7oiq8" path="res://assets/mushburg test building.glb" id="1_b42qt"]
-[ext_resource type="Script" path="res://scenes/test_building.gd" id="1_rcsxu"]
+[ext_resource type="Script" path="res://Scripts/test_building.gd" id="1_bghvn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4vvjo"]
 size = Vector3(4, 2, 4)
 
 [node name="TestBuildingNode" type="Node3D"]
-script = ExtResource("1_rcsxu")
+script = ExtResource("1_bghvn")
 
 [node name="TestBuildingBody" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -1)

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://rsq4s2qrqfwp"
-path="res://.godot/imported/mushburg dark green tile.glb-17567e4d42827b8c447c7aa6c6f0045f.scn"
+uid="uid://6k1b38b22i71"
+path="res://.godot/imported/Mushburg_wall_1.glb-689be561979b5d51a8a5f5cf83428f46.scn"
 
 [deps]
 
-source_file="res://assets/mushburg dark green tile.glb"
-dest_files=["res://.godot/imported/mushburg dark green tile.glb-17567e4d42827b8c447c7aa6c6f0045f.scn"]
+source_file="res://assets/Walls/Mushburg_wall_1.glb"
+dest_files=["res://.godot/imported/Mushburg_wall_1.glb-689be561979b5d51a8a5f5cf83428f46.scn"]
 
 [params]
 

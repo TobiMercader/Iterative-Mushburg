@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3u6t4q3ychc8"
-path.s3tc="res://.godot/imported/mushburg dark green tile_iterative mushburg dark green.png-9d993249749c8d20a474ef40f243263c.s3tc.ctex"
+uid="uid://tvtkurkdx8u6"
+path.s3tc="res://.godot/imported/Mushburg_wall_3_Material Base Color.png-97f0b9969e9fad0e4b238e37a1ee7915.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/mushburg dark green tile_iterative mushburg dark green.png"
-dest_files=["res://.godot/imported/mushburg dark green tile_iterative mushburg dark green.png-9d993249749c8d20a474ef40f243263c.s3tc.ctex"]
+source_file="res://assets/Walls/Mushburg_wall_3_Material Base Color.png"
+dest_files=["res://.godot/imported/Mushburg_wall_3_Material Base Color.png-97f0b9969e9fad0e4b238e37a1ee7915.s3tc.ctex"]
 
 [params]
 

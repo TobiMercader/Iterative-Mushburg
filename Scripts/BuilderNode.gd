@@ -8,7 +8,15 @@ var mouseWorld
 var building_positions: Array
 var current_rect
 
-var building = preload("res://scenes/test_building.tscn")
+var building = preload("res://scenes/node_wall.tscn")
+
+func _input(InputEvent):
+	if Input.is_key_pressed(KEY_1):
+		building = preload("res://scenes/test_building.tscn")
+		GameState.building_surface = Vector2i(4, 4)
+	elif Input.is_key_pressed(KEY_2):
+		building = preload("res://scenes/node_wall.tscn")
+		GameState.building_surface = Vector2i(1, 1)
 
 func _process(delta):
 	#gets the mouse position relative to the screen
@@ -25,6 +33,8 @@ func _process(delta):
 	var worldSpace = world.get_world_3d().direct_space_state
 	#gets the point that intersected with a collider
 	var rayResult = worldSpace.intersect_ray(rayQuery)
+	
+
 	
 	
 	
@@ -46,6 +56,7 @@ func _process(delta):
 				_placeBuilding()
 				
 func _placeBuilding():
+	GameState._object_placed.emit()
 	var placed_building = building.instantiate()
 	add_child(placed_building)
 	placed_building.position = Vector3(mouseWorld.x, 1, mouseWorld.y)
