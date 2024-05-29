@@ -6,13 +6,13 @@ var grid: Array
 @onready var gridmap = $".."
 
 func _ready():
-	for z in 2:
+	for z in 3:
 		var layer = []
 		for x in size/(z+1):
 			var row = []
 			layer.append(row)
 			for y in size/(z+1):
-				row.append(Vector3(x,z, y))
+				row.append(Vector3i(x,z, y))
 				var atlas
 				if  x % 2 == 1 and y % 2 == 1 or z % 2 == 0 and x % 2 == 0 and y % 2 == 0:
 					atlas = 0
