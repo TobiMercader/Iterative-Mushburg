@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c61evhpndg8fg"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
+vertices = PackedVector3Array(-0.523907, 0, -0.511723, -0.536091, 0, 0.487355, 0.475171, 0, 0.481263, 0.469079, 0, -0.529999)

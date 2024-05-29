@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnfsiumnb3e6p"]
+
+[ext_resource type="Script" path="res://Scripts/troop_node.gd" id="1_450pc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ds4d1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3phvo"]
+radius = 0.375
+height = 1.0
+
+[node name="TroopNode" type="CharacterBody3D" groups=["troops"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_450pc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 0.375, 0.5, 0.375)
+mesh = SubResource("CapsuleMesh_ds4d1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.5, 0.375)
+shape = SubResource("CapsuleShape3D_3phvo")
+disabled = true

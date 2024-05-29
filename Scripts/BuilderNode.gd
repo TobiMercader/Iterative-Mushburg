@@ -13,10 +13,15 @@ var building = preload("res://scenes/node_wall.tscn")
 func _input(InputEvent):
 	if Input.is_key_pressed(KEY_1):
 		building = preload("res://scenes/test_building.tscn")
-		GameState.building_surface = Vector2i(4, 4)
+		GameState.building_surface = Vector2i(2, 2)
 	elif Input.is_key_pressed(KEY_2):
 		building = preload("res://scenes/node_wall.tscn")
 		GameState.building_surface = Vector2i(1, 1)
+	elif Input.is_key_pressed(KEY_3):
+		building = preload("res://scenes/troop_node.tscn")
+		GameState.building_surface = Vector2i(1, 1)
+	
+	
 
 func _process(delta):
 	#gets the mouse position relative to the screen
@@ -40,25 +45,27 @@ func _process(delta):
 	
 	if !rayResult.is_empty():
 		#converts the float axis into hole numbers
-		mouseWorld = Vector2i(rayResult.position.x, rayResult.position.z) 
+		mouseWorld = Vector3i(rayResult.position.x, rayResult.position.z, rayResult.position.y) 
 		if(Input.is_action_just_pressed("left_mouse")):
-			current_rect = Rect2i(mouseWorld - GameState.building_surface + Vector2i(1,1), GameState.building_surface)
+			current_rect = Rect2i(Vector2i(mouseWorld.x, mouseWorld.y) - GameState.building_surface + Vector2i(1,1), GameState.building_surface)
 			
 			var is_placeable = true
 			for n in range (building_positions.size()):
 				if(current_rect.intersects(building_positions[n])):
 					is_placeable = false
 					break
-					#error: if theres one of the rects in the array that doesn't intersect,
-					# then it places the building. WHat it should do is wait to iterate through the hole array
-					#and even if only one rect intesects then it doesn´t place the building
+					
 			if(is_placeable):
 				_placeBuilding()
 				
 func _placeBuilding():
-	GameState._object_placed.emit()
 	var placed_building = building.instantiate()
 	add_child(placed_building)
-	placed_building.position = Vector3(mouseWorld.x, 1, mouseWorld.y)
-	building_positions.append(current_rect)
+	placed_building.position = Vector3(mouseWorld.x, mouseWorld.z, mouseWorld.y)
+	if placed_building.is_in_group("buildings"):
+		building_positions.append(current_rect)
+		emit_signal("building_placed")
+		print("yes i am")
+		
+signal building_placed()
 	
