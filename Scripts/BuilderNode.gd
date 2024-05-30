@@ -13,7 +13,7 @@ var building = preload("res://scenes/node_wall.tscn")
 func _input(InputEvent):
 	if Input.is_key_pressed(KEY_1):
 		building = preload("res://scenes/test_building.tscn")
-		GameState.building_surface = [Vector3i(0, 0, 0), Vector3i(-1, 0, 0), Vector3i(0, 0, -1), Vector3i(-1, 0, -1)]
+		GameState.building_surface = [Vector3i(0, 0, 0), Vector3i(-1, 0, 0), Vector3i(0, -1, 0), Vector3i(-1, -1, 0)]
 	elif Input.is_key_pressed(KEY_2):
 		building = preload("res://scenes/node_wall.tscn")
 		GameState.building_surface = [Vector3i(0, 0, 0)]
@@ -44,15 +44,20 @@ func _process(delta):
 	
 	
 	if !rayResult.is_empty():
+		var is_placeable = true
 		#converts the float axis into hole numbers
 		mouseWorld = Vector3i(rayResult.position.x, rayResult.position.z, rayResult.position.y)
 		var relativeSurface = GameState.building_surface.map(func(absolute): return absolute + mouseWorld )
 		if(Input.is_action_just_pressed("left_mouse")):
+			for g in relativeSurface.size():
+				var curTile = relativeSurface[g]
+				print(curTile)
+				if GameState.grid[curTile.z][curTile.y][curTile.x] == true:
+					is_placeable = false
+					break
+			if is_placeable == true:
+				_placeBuilding()
 			
-			if !GameState.grid.size() <= mouseWorld.z:
-				if !(GameState.grid[mouseWorld.z][mouseWorld.y][mouseWorld.x].has(relativeSurface)):
-					print("size:", GameState.grid[mouseWorld.z -1].size(), "index:", mouseWorld.x)
-					_placeBuilding()
 				
 func _placeBuilding():
 	var placed_building = building.instantiate()
