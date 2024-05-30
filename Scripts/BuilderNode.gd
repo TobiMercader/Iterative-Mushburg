@@ -48,17 +48,11 @@ func _process(delta):
 		mouseWorld = Vector3i(rayResult.position.x, rayResult.position.z, rayResult.position.y)
 		var relativeSurface = GameState.building_surface.map(func(absolute): return absolute + mouseWorld )
 		if(Input.is_action_just_pressed("left_mouse")):
-			#current_rect = Rect2i(Vector2i(mouseWorld.x, mouseWorld.y) - GameState.building_surface + Vector2i(1,1), GameState.building_surface)
-			#
-			#var is_placeable = true
-			#for n in range (building_positions.size()):
-				#if(current_rect.intersects(building_positions[n])):
-					#is_placeable = false
-					#break
-			if !relativeSurface.has(GameState.grid[mouseWorld.z -1][mouseWorld.y][mouseWorld.x]):
-				print("size:", GameState.grid[mouseWorld.z -1].size(), "index:", mouseWorld.x)
-			#if(is_placeable):
-				_placeBuilding()
+			
+			if !GameState.grid.size() <= mouseWorld.z:
+				if !(GameState.grid[mouseWorld.z][mouseWorld.y][mouseWorld.x].has(relativeSurface)):
+					print("size:", GameState.grid[mouseWorld.z -1].size(), "index:", mouseWorld.x)
+					_placeBuilding()
 				
 func _placeBuilding():
 	var placed_building = building.instantiate()
