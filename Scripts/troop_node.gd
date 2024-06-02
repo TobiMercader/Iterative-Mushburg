@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var world = $".."
+@onready var typesearcher = $TypeSearcher
 @export var speed = 2
 
 var available_buildings
@@ -8,15 +9,14 @@ var target
 var ind = 0
 
 func _ready():
-	_search_building()
-	print(GameState.grid[0])
+	#_search_building()
+	typesearcher._search_type(0)
+	target = typesearcher.target
 	
 func _process(delta):
-	
 	velocity = position.direction_to(target.position - Vector3(1, 0, 1)) * speed
 	
 	if position.distance_to(target.position - Vector3(1, 0, 1))  <= 0.1:
-		print("attacked")
 		var attack = Attack.new()
 		attack.attack_damage = 8
 		self.position = position + attack.attack_knockback

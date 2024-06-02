@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnfsiumnb3e6p"]
+[gd_scene load_steps=5 format=3 uid="uid://cnfsiumnb3e6p"]
 
 [ext_resource type="Script" path="res://Scripts/troop_node.gd" id="1_450pc"]
+[ext_resource type="Script" path="res://scenes/typeSearcher.gd" id="2_xn2fu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ds4d1"]
 
@@ -21,3 +22,7 @@ mesh = SubResource("CapsuleMesh_ds4d1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.5, 0.375)
 shape = SubResource("CapsuleShape3D_3phvo")
 disabled = true
+
+[node name="TypeSearcher" type="Node3D" parent="."]
+script = ExtResource("2_xn2fu")
+targetType = &"buildings"

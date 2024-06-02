@@ -16,12 +16,12 @@ func _ready():
 		GameState.grid.append(layer)
 		
 	
-	for z in 5:
-		for y in size/(z+1):
-			for x in size/(z+1):
+	for z in 4:
+		for y in size-(z)*4:
+			for x in size-(z)*4:
 				GameState.grid[z][y][x] = true
 				var atlas
-				if  x % 2 == 1 and y % 2 == 1 or z % 2 == 0 and x % 2 == 0 and y % 2 == 0:
+				if  x % 2 == 1 and y % 2 == 1 or x % 2 == 0 and y % 2 == 0:
 					atlas = 0
 				else:
 					atlas = 1

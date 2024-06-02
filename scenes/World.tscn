@@ -5,21 +5,28 @@
 [ext_resource type="MeshLibrary" uid="uid://dhegcqvhitoh5" path="res://resources/MeshLibrary.tres" id="2_gmk42"]
 
 [sub_resource type="Environment" id="Environment_4ix2a"]
-background_energy_multiplier = 3.13
-ambient_light_color = Color(0.647059, 0.839216, 0.847059, 1)
+background_mode = 1
+background_color = Color(0.321569, 0.239216, 0.584314, 1)
+background_energy_multiplier = 1.4
+fog_sun_scatter = 0.75
+fog_density = 0.0003
 
 [node name="WorldNode" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4ix2a")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.707785, -0.695187, 0.125522, 0, 0.177686, 0.984087, -0.706428, -0.696522, 0.125763, 0, 4.16458, 0)
-light_energy = 1.807
+[node name="DirectionalLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.657922, 0.716473, 0.231962, -0.332507, -9.83851e-08, 0.943101, 0.675706, -0.697615, 0.238232, 12.5496, 17.3036, 12.534)
+light_energy = 13.556
+light_size = 1.0
 shadow_enabled = true
+spot_range = 31.014
+spot_attenuation = 0.517632
+spot_angle = 35.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999976, -0.00698126, 0, 0.00349063, 0.499988, 0.866025, -0.00604595, -0.866004, 0.5, 8, 11.1464, 17.2136)
+transform = Transform3D(0.999976, -0.00698126, 2.73445e-09, 0.00349063, 0.499988, 0.866025, -0.00604595, -0.866004, 0.5, 7.96942, 15.3249, 16.6813)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_gmk42")
