@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://tqwffp2sn7v4"]
 
 [ext_resource type="Script" path="res://Scripts/BuilderNode.gd" id="1_rnwa5"]
-[ext_resource type="Script" path="res://scenes/TerrainGenerator.gd" id="2_5jump"]
+[ext_resource type="Script" path="res://Scripts/TerrainGenerator.gd" id="2_5jump"]
 [ext_resource type="MeshLibrary" uid="uid://dhegcqvhitoh5" path="res://resources/MeshLibrary.tres" id="2_gmk42"]
 
 [sub_resource type="Environment" id="Environment_4ix2a"]
