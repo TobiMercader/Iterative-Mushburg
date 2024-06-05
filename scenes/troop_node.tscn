@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnfsiumnb3e6p"]
+[gd_scene load_steps=7 format=3 uid="uid://cnfsiumnb3e6p"]
 
 [ext_resource type="Script" path="res://Scripts/troop_node.gd" id="1_450pc"]
 [ext_resource type="Script" path="res://Scripts/Component Scripts/typeSearcher.gd" id="2_kt1nl"]
 [ext_resource type="Script" path="res://Scripts/Component Scripts/Mover.gd" id="3_fjpab"]
 [ext_resource type="Script" path="res://scenes/Attacker.gd" id="4_b0wfr"]
+[ext_resource type="Script" path="res://scenes/Aimer.gd" id="5_akkt6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ds4d1"]
 
@@ -20,9 +21,18 @@ targetType = &"buildings"
 
 [node name="Mover" type="Node3D" parent="." node_paths=PackedStringArray("character", "typeSearcher")]
 script = ExtResource("3_fjpab")
-speed = 60.0
+speed = 2.0
 character = NodePath("..")
 typeSearcher = NodePath("../TypeSearcher")
 
-[node name="Attacker" type="Node3D" parent="."]
+[node name="Attacker" type="Node3D" parent="." node_paths=PackedStringArray("typeSearcher", "main", "mover")]
 script = ExtResource("4_b0wfr")
+typeSearcher = NodePath("../TypeSearcher")
+main = NodePath("..")
+mover = NodePath("../Mover")
+
+[node name="Aimer" type="Node3D" parent="." node_paths=PackedStringArray("typeSearcher", "Attacker")]
+script = ExtResource("5_akkt6")
+range = 3.0
+typeSearcher = NodePath("../TypeSearcher")
+Attacker = NodePath("../Attacker")
