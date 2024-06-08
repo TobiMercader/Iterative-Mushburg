@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://tqwffp2sn7v4"]
+[gd_scene load_steps=6 format=3 uid="uid://tqwffp2sn7v4"]
 
 [ext_resource type="Script" path="res://Scripts/BuilderNode.gd" id="1_rnwa5"]
+[ext_resource type="Script" path="res://scenes/WorldCamera.gd" id="1_v0qsb"]
 [ext_resource type="Script" path="res://Scripts/TerrainGenerator.gd" id="2_5jump"]
 [ext_resource type="MeshLibrary" uid="uid://dhegcqvhitoh5" path="res://resources/MeshLibrary.tres" id="2_gmk42"]
 
@@ -25,8 +26,12 @@ spot_range = 31.014
 spot_attenuation = 0.517632
 spot_angle = 35.0
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="WorldCamera" type="Camera3D" parent="."]
 transform = Transform3D(0.999976, -0.00698126, 2.73445e-09, 0.00349063, 0.499988, 0.866025, -0.00604595, -0.866004, 0.5, 7.96942, 15.3249, 16.6813)
+script = ExtResource("1_v0qsb")
+
+[node name="RayCast3D" type="RayCast3D" parent="WorldCamera"]
+transform = Transform3D(1, 0, -2.32831e-10, -4.65661e-10, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_gmk42")
