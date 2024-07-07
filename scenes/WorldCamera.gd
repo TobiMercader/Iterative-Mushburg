@@ -21,7 +21,6 @@ func _process(delta):
 	var worldSpace = world.get_world_3d().direct_space_state
 	#gets the point that intersected with a collider
 	rayResult = worldSpace.intersect_ray(rayQuery)
-	print(rayResult)
 	
 	if !rayResult.is_empty():
 		mouseWorld = Vector3i(rayResult.position.x, rayResult.position.z, rayResult.position.y)

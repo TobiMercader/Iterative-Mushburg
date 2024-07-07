@@ -34,7 +34,7 @@ func _process(delta):
 			for g in relativeSurface.size():
 				var curTile = relativeSurface[g]
 				print(curTile)
-				if GameState.grid[curTile.z][curTile.y][curTile.x] == true:
+				if GameState.grid[curTile.y][curTile.x] == true:
 					is_placeable = false
 					break
 					
@@ -42,13 +42,14 @@ func _process(delta):
 				_placeBuilding()
 				for g in relativeSurface.size():
 					var curTile = relativeSurface[g]
-					GameState.grid[curTile.z][curTile.y][curTile.x] = true
+					GameState.grid[curTile.y][curTile.x] = true
 			
 				
 func _placeBuilding():
+	print("colocado")
 	var placed_building = building.instantiate()
 	add_child(placed_building)
-	placed_building.position = Vector3(camera.mouseWorld.x, camera.mouseWorld.z, camera.mouseWorld.y)
+	placed_building.position = Vector3(camera.mouseWorld.x, 1, camera.mouseWorld.y)
 	if placed_building.is_in_group("buildings"):
 		emit_signal("building_placed")
 		print("yes i am")
