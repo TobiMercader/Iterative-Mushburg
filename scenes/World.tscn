@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://tqwffp2sn7v4"]
+[gd_scene load_steps=8 format=3 uid="uid://tqwffp2sn7v4"]
 
 [ext_resource type="Script" path="res://Scripts/BuilderNode.gd" id="1_rnwa5"]
 [ext_resource type="Script" path="res://scenes/WorldCamera.gd" id="1_v0qsb"]
 [ext_resource type="Script" path="res://Scripts/TerrainGenerator.gd" id="2_5jump"]
-[ext_resource type="MeshLibrary" uid="uid://dhegcqvhitoh5" path="res://resources/MeshLibrary.tres" id="2_gmk42"]
+[ext_resource type="Texture2D" uid="uid://s2coxt7fys38" path="res://assets/it_mb tileset square.png" id="2_c0uca"]
 
 [sub_resource type="Environment" id="Environment_4ix2a"]
 background_mode = 1
@@ -11,6 +11,16 @@ background_color = Color(0.321569, 0.239216, 0.584314, 1)
 background_energy_multiplier = 1.4
 fog_sun_scatter = 0.75
 fog_density = 0.0003
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chsvo"]
+texture = ExtResource("2_c0uca")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ss1d8"]
+sources/0 = SubResource("TileSetAtlasSource_chsvo")
 
 [node name="WorldNode" type="Node3D"]
 
@@ -27,16 +37,16 @@ spot_attenuation = 0.517632
 spot_angle = 35.0
 
 [node name="WorldCamera" type="Camera3D" parent="."]
-transform = Transform3D(0.999976, -0.00698126, 2.73445e-09, 0.00349063, 0.499988, 0.866025, -0.00604595, -0.866004, 0.5, 7.96942, 15.3249, 16.6813)
+transform = Transform3D(0.999982, 0, 0, 0, 0.500037, 0, 0, 0, 0, 256, 144, 0)
 script = ExtResource("1_v0qsb")
 
 [node name="RayCast3D" type="RayCast3D" parent="WorldCamera"]
 transform = Transform3D(1, 0, -2.32831e-10, -4.65661e-10, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("2_gmk42")
-cell_size = Vector3(1, 1, 1)
-bake_navigation = true
+[node name="GridMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ss1d8")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 0, 131072, 65536, 0, 262144, 65536, 0, 393216, 65536, 0, 524288, 65536, 0, 655360, 65536, 0, 786432, 65536, 0, 917504, 65536, 0)
 metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="TerrainGenerator" type="Node3D" parent="GridMap"]

@@ -1,4 +1,6 @@
 extends Camera3D
+#we have to change it to a 2d camera
+
 
 @onready var world = $".."
 
