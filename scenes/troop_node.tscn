@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cnfsiumnb3e6p"]
 
-[ext_resource type="Script" path="res://Scripts/troop_node.gd" id="1_450pc"]
+[ext_resource type="Script" path="res://Scripts/node scripts/troop_node.gd" id="1_4pk2g"]
 [ext_resource type="Script" path="res://Scripts/Component Scripts/typeSearcher.gd" id="2_kt1nl"]
 [ext_resource type="Script" path="res://Scripts/Component Scripts/Mover.gd" id="3_fjpab"]
 [ext_resource type="Script" path="res://scenes/Attacker.gd" id="4_b0wfr"]
@@ -9,7 +9,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ds4d1"]
 
 [node name="TroopNode" type="Node3D" groups=["troops"]]
-script = ExtResource("1_450pc")
+script = ExtResource("1_4pk2g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 0.375, 0.5, 0.375)
