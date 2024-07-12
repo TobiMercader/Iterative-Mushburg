@@ -1,4 +1,4 @@
-extends Node3D
+extends Node2D
 
 var size = 16
 var grid: Array
